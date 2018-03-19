@@ -19,7 +19,11 @@ const toNative2 = require('../lib/creation/convertWithoutPromise').convert;
 const toPromise = require('../lib/creation/toPromise').toPromise;
 const toCallback = require('../lib/creation/toCallback').toCallback;
 const { chain, chainWithAsync } = require('../lib/transformation/chain');
-const multipleSequentialCalls = require('../lib/transformation/calls').calls;
+const multipleSequentialCalls = require('../lib/transformation/multiple').multple;
+const handleError = require('../lib/errors/promise').handleError;
+const handleErrorAsync = require('../lib/errors/async').handleError;
+const aggregateWithPromises = require('../lib/aggregate/aggregate').aggregateWithPromises;
+const first = require('../lib/aggregate/first').first;
 
 function mulBy100(n, cb) {
   cb(null, n * 100);
@@ -30,7 +34,7 @@ async function divBy100(n) {
 }
 
 describe('Fundamentals', () => {
-  describe.only('Construction', () => {
+  describe('Construction', () => {
     it('Reverse string with a callback.', (done) => {
       cbReverse('abdnghnrnfnsdfnsdfghku896323ddghh233ffdsss', (err, value) => {
         assert.ifError(err);
@@ -107,34 +111,34 @@ describe('Fundamentals', () => {
     });
   });
 
-  describe('Transfornation', () => {
-    it.only('chains calls using async/await', async () => {
+  describe('Transformation', () => {
+    it('chains calls using async/await', async () => {
       assert.equal(await chainWithAsync(), await chain());
     });
 
-    it('makes successive calls', async () => {
+    it('makes sequentials calls', async () => {
       assert.equal(await multipleSequentialCalls(), 'abcdefghijklmnopqrstuvwxyz');
     });
   });
 
   describe('Error handling', () => {
     describe('with promises', () => {
-      it('Question 1.', async () => {
+      it('handles a service error', async () => {
         const flaky = new FlakyService(true);
 
         try {
-          await Warmup.promiseOnError(flaky);
+          await handleError(flaky);
         } catch (err) {
           return assert.instanceOf(err, ServiceError);
         }
         assert.fail('test did not throw');
       });
 
-      it('Question 2.', async () => {
+      it('always shutdowns', async () => {
         const flaky = new FlakyService(true);
 
         try {
-          await Warmup.promiseOnError(flaky);
+          await handleError(flaky);
         } catch (err) {
           return assert.isTrue(flaky.isClosed(), 'shutdown not called');
         }
@@ -144,11 +148,11 @@ describe('Fundamentals', () => {
     });
 
     describe('with async/await', () => {
-      it('Question 3. ', async () => {
+      it('handles errors with async functions', async () => {
         const flaky = new FlakyService(true);
 
         try {
-          await Warmup.asyncOnError(flaky);
+          await handleErrorAsync(flaky);
         } catch (err) {
           return assert.instanceOf(err, ServiceError);
         }
@@ -156,13 +160,13 @@ describe('Fundamentals', () => {
         assert.fail('test did not throw');
       });
 
-      it('Question 4. ', async () => {
-        const flaky = new FlakyService(true);
+      it('always shutdowns using async', async () => {
+        const service = new FlakyService(true);
 
         try {
-          await Warmup.asyncOnError(flaky);
+          await handleErrorAsync(service);
         } catch (err) {
-          return assert.isTrue(flaky.isClosed(), 'shutdown not called');
+          return assert.isTrue(service.isClosed(), 'shutdown not called');
         }
 
         assert.fail('test did not throw');
@@ -171,16 +175,16 @@ describe('Fundamentals', () => {
   });
 
   describe('Aggregating results', async () => {
-    it('Question 1. ', async () => {
+    it('aggregates multiple requests with promises', async () => {
       const flaky = new FlakyService(false);
-      const responses = await Warmup.aggregating(flaky);
+      const responses = await aggregateWithPromises(flaky);
       assert.deepEqual(_.map(responses, 'id'), _.range(1, 51));
     });
 
-    it('Question 2. ', async () => {
+    it('returns the first to complete', async () => {
       const flaky = new FlakyService(false);
-      const first = await Warmup.first(flaky);
-      assert.equal(first.id, flaky.getFatestRequest());
+      const res = await first(flaky);
+      assert.equal(res.id, flaky.getFatestRequest());
     });
   });
 });

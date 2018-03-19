@@ -33,6 +33,34 @@ Implement solutions for all questions. **Objective**: all tests should pass.
 
 * _Write an alternative implementation of [chain](./lib/transformation/chain.js) in a new function called `chainWithAsync` to use async/await. **Dont use promises**._
 
+* _Complete the implementation of [multipleAsyncCalls](./lib/transformation/multiple.js) to create a string containing each letter of the alphabet. Each letter should be created by invoking the `generateNextChar` async function._
+
 # Error handling
 
+* _Complete the implementation of [handlePromiseError](./lib/errors/promise.js) by:_
+
+  * Calling a given service's `makeRequest` method
+  * Handling any error thrown by `.makeRequest()` by converting it to an instance of `ServiceError` using the
+  promise API.
+
+* _Modify the implementation of [handlePromiseError](./lib/errors/promise.js) to ensure the service's `.shutdown` method is always called, even if an error is thrown. **You must use the Promise API**._
+
+* _Write an alternative implementation of [handlePromiseError](./lib/errors/promise.js) in a new function called [handleAsyncError](./lib/errors/async.js) to use async/await. This should include handling the invocation of `.shutdown`. **Dont use promises**._
+
 # Aggregating results
+
+* _Complete the implementation of [aggregateWithPromises](./lib/aggregate/aggregate.js) by:_
+
+  * making 50 requests to `service.makeRequest`
+  * return a promise of all the responses (fulfulment value is an array of responses)
+  * **Forget** about error handling for this exercise
+
+* _Complete the implementation of [first](./lib/aggregate/first.js) by:_
+
+  * making 50 requests to `service.makeRequest`
+  * return the first promise to resolve
+  * **Forget** about error handling for this exercise
+
+* _Write your own implementation of `Promise.all`. Refactor [aggregateWithPromises](./lib/aggregate/aggregate.js) to use your implementation._
+
+* _Write your own implementation of `Promise.race`. Refactor [first](./lib/aggregate/first.js) to use your implementation._

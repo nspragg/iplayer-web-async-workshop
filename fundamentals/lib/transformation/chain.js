@@ -1,14 +1,6 @@
 'use strict';
 
-// DONT MODIFY THIS FUNCTION
-// Helper fn - returns a fn that creates a different char per call, starting with 'a'
-// NOTE - does not rotate.
-function generateChar() {
-  let code = 'a'.charCodeAt(0) - 1;
-  return async () => {
-    return String.fromCharCode(++code);
-  };
-}
+const generateChar = require('./generateChar');
 
 // DONT MODIFY THIS FUNCTION
 function chain() {
