@@ -26,4 +26,4 @@ See [refactoring](./refactoring/brief.md)
 Finally, this section is concerned with knowledge sharing and how async/await/promises
 should be used within your team. 
 
-See [review](./review/index.md)
+See [review](./review/review.md)

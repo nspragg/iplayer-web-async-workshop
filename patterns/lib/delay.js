@@ -1,5 +1,11 @@
 'use strict';
 
-module.exports = async () => {
-  throw new Error('Not implemented');
+module.exports = async (delayMs) => {
+  // throw new Error('Not implemented');
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, delayMs);
+  });
+
 };

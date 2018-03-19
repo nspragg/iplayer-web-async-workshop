@@ -1,7 +1,11 @@
 'use strict';
 
+const mapLimit = require('./mapLimit');
+
+const CONCURRENCY_LEVEL = 1;
+
 async function mapSeries(iterable, fn) {
-  throw new Error('Not implemented');
+  return mapLimit(iterable, fn, CONCURRENCY_LEVEL);
 }
 
 module.exports = mapSeries;

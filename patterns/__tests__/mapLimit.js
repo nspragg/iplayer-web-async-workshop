@@ -66,8 +66,6 @@ describe('.mapLimit', () => {
     expect(results).toEqual([20, 40, 60, 80, 100, 120]);
   });
 
-  it('has a default concurrency level of 1');
-
   it('returns an error if at least one invocation fails', async () => {
     let calls = 0;
     try {

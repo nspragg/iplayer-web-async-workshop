@@ -25,5 +25,5 @@ references to any required resources.
     * Work individually (recommended) unless instructed (there is a pairing exercise).
  
 ## Have you read the instructions?
-If so [_start workshop_](/index.md)
+If so [_start workshop_](./index.md)
 

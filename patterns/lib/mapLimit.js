@@ -1,5 +1,8 @@
 'use strict';
 
+const fixedExecutor = require('./private/executor');
+
 module.exports = async (iterable, fn, limit) => {
-  throw new Error('Not implemented');
+  if (!iterable || limit < 1) return [];
+  return fixedExecutor(iterable, fn, limit);
 };

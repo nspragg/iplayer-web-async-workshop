@@ -4,7 +4,6 @@ const path = require('path');
 const Filehound = require('filehound');
 
 // DO NOT MODIFY THIS FILE
-
 function qualify(file) {
   return path.join(__dirname, path.basename(file));
 }
