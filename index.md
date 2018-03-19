@@ -4,7 +4,7 @@
 
 This section is a refresher on the basics of callbacks and promises. It will also introduce `async functions` and the `await` opertor. 
 
-See [Fundamentals](./fundamentals/brief.md)
+See [Fundamentals](./fundamentals/questions.md)
 
 # Patterns - Implementing asynchronous patterns
 

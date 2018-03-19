@@ -14,19 +14,6 @@ This is a **self paced** workshop which allows developers to enhance asynchronou
 **This is not a tutorial or lecture based workshop**. However, the workshop will provide
 references to any required resources.
 
-By doing a workshop on asynchronous programming in Node 8, we aim to achieve:
-
-* Gain familarity with async and await constructs
-* Gain familarity with the Promise API
-* Advantages/disadvantages of promises and async/await
-* Recognising (or defining) when to use promises and async/await
-* Asynchronous patters eg filter, map, reduce, retries, error handling
-* Define consistent ways of writing async code in Node 8
-* Increase knowledge via practical application
-* Share ideas/views with other team members
-
-We will **not** been focusing on generators for this workshop. 
-
 ## Instructions 
     * Read the questions carefully. 
     * Some exercises have tests but not all. Typically you don't need to worry about the tests unless instructed.  
