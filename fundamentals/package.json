@@ -1,7 +1,7 @@
 {
-  "name": "@bbc/part-0",
+  "name": "@bbc/fundamentals",
   "version": "1.0.0",
-  "description": "Warmup ",
+  "description": "fundamentals",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
