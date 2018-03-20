@@ -1,8 +1,5 @@
 'use strict';
 
-const fixedExecutor = require('./private/executor');
+const ExecutorError = require('./private/ExecutorError');
 
-module.exports = async (iterable, fn, limit) => {
-  if (!iterable || limit < 1) return [];
-  return fixedExecutor(iterable, fn, limit);
-};
+module.exports = async (iterable, fn, limit) => { };

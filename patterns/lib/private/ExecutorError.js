@@ -1,5 +1,5 @@
 'use strict';
 
-class ExecutorError extends Error {}
+class ExecutorError extends Error { }
 
 module.exports = ExecutorError;

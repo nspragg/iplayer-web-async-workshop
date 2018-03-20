@@ -32,6 +32,7 @@
     "jest": "^21.2.1"
   },
   "dependencies": {
+    "c": "^0.1.0",
     "filehound": "^1.16.2"
   },
   "eslintConfig": {

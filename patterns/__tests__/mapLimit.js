@@ -68,6 +68,7 @@ describe('.mapLimit', () => {
 
   it('returns an error if at least one invocation fails', async () => {
     let calls = 0;
+    let expectedError;
     try {
       await asyncify.mapLimit(
         [10, 0, 30],
@@ -79,9 +80,10 @@ describe('.mapLimit', () => {
         1
       );
     } catch (err) {
-      expect(err).toBeInstanceOf(ExecutorError);
-      expect(calls).toBe(2);
+      expectedError = err;
     }
+    expect(expectedError).toBeInstanceOf(ExecutorError);
+    expect(calls).toBe(2);
   });
 
   it('supports synchronous functions', async () => {
