@@ -2,7 +2,7 @@
 
 ## Installation and setup 
 
-⚠️ Before preceding, `cd` to the `patterns` directory and run `npm it`. All tests should fail. ⚠️<br>
+⚠️ Before preceding, from the project `cd` to the `patterns` directory and run `npm it`. All tests should fail. ⚠️<br>
 ⚠️ Tests have been written using [Jest](https://facebook.github.io/jest/) ⚠️<br>
 
 ## Task
