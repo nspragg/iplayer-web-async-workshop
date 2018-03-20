@@ -7,10 +7,10 @@ const bluebird = require('bluebird');
 const FlakyService = require('../lib/FlakyService');
 const ServiceError = require('../lib/ServiceError');
 
-const promiseReverse = require('../lib/creation/p_rev').reverse;
-const cbReverse = require('../lib/creation/cb_rev').reverse;
-const cbWithError = require('../lib/creation/cb_error').withError;
-const promiseWithError = require('../lib/creation/p_error').withError;
+const promiseReverse = require('../lib/creation/pRev').reverse;
+const cbReverse = require('../lib/creation/cbRev').reverse;
+const cbWithError = require('../lib/creation/cbError').withError;
+const promiseWithError = require('../lib/creation/pError').withError;
 const now = require('../lib/creation/now').now;
 const isUnique = require('../lib/creation/unique').isUnique;
 const harmonic = require('../lib/creation/harmonic').harmonic;
@@ -62,8 +62,9 @@ describe('Fundamentals', () => {
       try {
         await promiseWithError(message);
       } catch (err) {
-        assert.equal(err.message, message);
+        return assert.equal(err.message, message);
       }
+      assert.fail('test did not throw');
     });
 
     it('return immediately', async () => {
@@ -80,7 +81,6 @@ describe('Fundamentals', () => {
     });
 
     // UNCOMMENT THIS TEST
-
     // it('calculates a harmonic numbers', async () => {
     //   const sum = await harmonic(5);
     //   assert.equal(sum, 2.283333333333333);
