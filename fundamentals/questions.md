@@ -2,7 +2,7 @@
 
 ## Installation and setup 
 
-⚠️ Before preceding, `cd` to the `fundamentals` directory and run `npm it`. All tests should fail. ⚠️<br>
+⚠️ Before preceding, from the project root, `cd` to the `fundamentals` directory and run `npm it`. All tests should fail. ⚠️<br>
 
 ## Task 
 Implement solutions for all exercises. **Objective**: all tests should pass.
