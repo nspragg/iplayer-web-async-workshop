@@ -15,7 +15,7 @@ See [async patterns](./patterns/brief.md)
 
 # Refactoring
 
-⚠️ This is a pairing exercise ⚠️
+⚠️  This is a pairing exercise ⚠️
 
 In this section you'll refactor existing bbc libraries. There is a potential for open source contributions. 
 
