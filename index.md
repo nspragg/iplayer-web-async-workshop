@@ -1,4 +1,4 @@
-⚠️  Ensure you've reviewed the [README](../README) ⚠️<br>
+⚠️  Ensure you've reviewed the [README](./README) ⚠️<br>
 
 # Fundamentals
 
