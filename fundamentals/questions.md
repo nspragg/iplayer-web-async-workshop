@@ -11,13 +11,13 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 ### Construction
 
-* _Complete the implementation of [reverse](./lib/creation/cb_rev.js) to reverse a given string using a callback._
+* _Complete the implementation of [reverse](./lib/creation/cbRev.js) to reverse a given string using a callback._
 
-* _Complete the implementation of [reverse](./lib/creation/p_rev.js) to reverse a given string and return the result as a promise. The promise **must** be created using a `Promise` constructor._
+* _Complete the implementation of [reverse](./lib/creation/pRev.js) to reverse a given string and return the result as a promise. The promise **must** be created using a `Promise` constructor._
 
-* _Complete the implementation of [withError](./lib/creation/cb_error.js) to yield an instance of `Error` with a given error message._
+* _Complete the implementation of [withError](./lib/creation/cbError.js) to yield an instance of `Error` with a given error message._
 
-* _Complete the implementation of [withError](./lib/creation/p_error.js) to return a rejected promise with an instance of `Error` with a given error message._
+* _Complete the implementation of [withError](./lib/creation/pError.js) to return a rejected promise with an instance of `Error` with a given error message._
 
 * _Complete the implementation of [now](./lib/creation/now.js) immediately return a promise with a given value **without using a promise constrcutor**._
 
