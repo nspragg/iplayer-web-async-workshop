@@ -21,9 +21,9 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 * _Complete the implementation of [now](./lib/creation/now.js) immediately return a promise with a given value **without using a promise constrcutor**._
 
-* _Complete the implementation of [isUnique](./lib/creation/unique.js) to determine if a given string contains unique characters (boolean return type). **This function must be implemented as an async function**. DO NOT directly use a `Promise`. Optional: to make the exercise more difficult, only use arrays._
-
 * [Harmonic](./lib/creation/harmonic.js) calculates the sum of haronmic numbers up to a given integer `n`. However, there is an unexpected error. Fix the implementation. Before preceding you'll need to uncomment the implementation and the [test](./test/tests.js) 
+
+* _Complete the implementation of [isUnique](./lib/creation/unique.js) to determine if a given string contains unique characters (boolean return type). **This function must be implemented as an async function**. DO NOT directly use a `Promise`. Optional: to make the exercise more difficult, only use arrays._
 
 * _Complete the implementation of [convert](./lib/creation/convertWithNative.js) to convert a third party promise to a native JS promise._
 
@@ -32,6 +32,8 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 * _Complete the implementation of [toPromise](./lib/creation/toPromise.js) to convert legacy callback function to return a promise._
 
 * _Complete the implementation of [toCallback](./lib/creation/toCallback.js) that converts a given function (that returns a Promise) to a `callback` based function._
+
+* _Complete the implementation of [toAsync](./lib/creation/toAsync.js) that converts a given synchronous function to an `async` function._
 
 ### Transformation (chaining)
 
@@ -65,6 +67,10 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
   * return the first promise to resolve
   * **Forget** about error handling for this exercise
 
+### Advanced - optional exercises
+
 * _Write your own implementation of `Promise.all`. Refactor [aggregateWithPromises](./lib/aggregate/aggregate.js) to use your implementation._
 
 * _Write your own implementation of `Promise.race`. Refactor [first](./lib/aggregate/first.js) to use your implementation._
+
+* _Write your own basic implementation of a cancelable promise. You'll need to write tests for this exercise._

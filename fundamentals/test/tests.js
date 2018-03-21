@@ -24,9 +24,16 @@ const handleError = require('../lib/errors/promise').handleError;
 const handleErrorAsync = require('../lib/errors/async').handleError;
 const aggregateWithPromises = require('../lib/aggregate/aggregate').aggregateWithPromises;
 const first = require('../lib/aggregate/first').first;
+const toAsync = require('../lib/creation/toAsync').toAsync;
 
 function mulBy100(n, cb) {
   cb(null, n * 100);
+}
+
+function lessThan(n) {
+  return (value) => {
+    return value < n;
+  };
 }
 
 async function divBy100(n) {
@@ -108,6 +115,13 @@ describe('Fundamentals', () => {
         assert.equal(value, 10);
         done();
       });
+    });
+
+    it('converts a function to an async function', async () => {
+      const fn = toAsync(lessThan(10));
+      const ans = await fn(5);
+      assert.isTrue(ans);
+      assert.equal(fn.constructor.name, 'AsyncFunction');
     });
   });
 
