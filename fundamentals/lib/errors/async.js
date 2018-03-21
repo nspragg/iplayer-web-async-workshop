@@ -2,4 +2,4 @@
 
 const ServiceError = require('../ServiceError');
 
-module.exports.handleError = async (service) => { };
+module.exports.handleAsyncError = async (service) => { };

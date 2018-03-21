@@ -11,15 +11,15 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 ### Construction
 
-* _Complete the implementation of [reverse](./lib/creation/cbRev.js) to reverse a given string using a callback._
+* _Complete the implementation of [reverseWithCb](./lib/creation/cbRev.js) to reverse a given string using a callback._
 
-* _Complete the implementation of [reverse](./lib/creation/pRev.js) to reverse a given string and return the result as a promise. The promise **must** be created using a `Promise` constructor._
+* _Complete the implementation of [reverseWithPromise](./lib/creation/pRev.js) to reverse a given string and return the result as a promise. The promise **must** be created using a `Promise` constructor._
 
-* _Complete the implementation of [withError](./lib/creation/cbError.js) to yield an instance of `Error` with a given error message._
+* _Complete the implementation of [createError](./lib/creation/cbError.js) to yield an instance of `Error` with a given error message._
 
-* _Complete the implementation of [withError](./lib/creation/pError.js) to return a rejected promise with an instance of `Error` with a given error message._
+* _Complete the implementation of [withErrorPromise](./lib/creation/pError.js) to return a rejected promise with an instance of `Error` with a given error message._
 
-* _Complete the implementation of [now](./lib/creation/now.js) immediately return a promise with a given value **without using a promise constrcutor**._
+* _Complete the implementation of [now](./lib/creation/now.js) to immediately return a promise with a given value **without using a promise constructor**._
 
 * [Harmonic](./lib/creation/harmonic.js) calculates the sum of haronmic numbers up to a given integer `n`. However, there is an unexpected error. Fix the implementation. Before preceding you'll need to uncomment the implementation and the [test](./test/tests.js) 
 
@@ -55,6 +55,8 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 ### Aggregating results
 
+* [sumOfSquares](./lib/aggregate/sum.js) is an async function that sums the square of each number in a given array. However, it's returning an unexpected result. Fix the implementation. **You must use `array.reduce`**_
+
 * _Complete the implementation of [aggregateWithPromises](./lib/aggregate/aggregate.js) by:_
 
   * making 50 requests to `service.makeRequest`
@@ -73,4 +75,7 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 * _Write your own implementation of `Promise.race`. Refactor [first](./lib/aggregate/first.js) to use your implementation._
 
-* _Write your own basic implementation of a cancelable promise. You'll need to write tests for this exercise._
+* _Complete the implemention of [compress](./lib/advanced/compress.js) to compress a string using the character counts.<br>
+ For example:<br> `compress("aabccccczzzz") // a2b1c5z4`_
+
+* _Write your own basic implementation of a cancelable promise. **You'll need to write tests for this exercise**._

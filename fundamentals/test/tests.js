@@ -9,11 +9,11 @@ const ServiceError = require('../lib/ServiceError');
 
 const promiseReverse = require('../lib/creation/pRev').reverse;
 const cbReverse = require('../lib/creation/cbRev').reverse;
-const cbWithError = require('../lib/creation/cbError').withError;
+const cbWithError = require('../lib/creation/cbError').createError;
 const promiseWithError = require('../lib/creation/pError').withError;
 const now = require('../lib/creation/now').now;
 const isUnique = require('../lib/creation/unique').isUnique;
-const harmonic = require('../lib/creation/harmonic').harmonic;
+const { harmonic } = require('../lib/creation/harmonic');
 const toNative = require('../lib/creation/convertWithNative').convert;
 const toNative2 = require('../lib/creation/convertWithoutPromise').convert;
 const toPromise = require('../lib/creation/toPromise').toPromise;
@@ -21,10 +21,12 @@ const toCallback = require('../lib/creation/toCallback').toCallback;
 const { chain, chainWithAsync } = require('../lib/transformation/chain');
 const multipleSequentialCalls = require('../lib/transformation/multiple').multple;
 const handleError = require('../lib/errors/promise').handleError;
-const handleErrorAsync = require('../lib/errors/async').handleError;
-const aggregateWithPromises = require('../lib/aggregate/aggregate').aggregateWithPromises;
-const first = require('../lib/aggregate/first').first;
-const toAsync = require('../lib/creation/toAsync').toAsync;
+const { handleAsyncError } = require('../lib/errors/async');
+const { aggregateWithPromises } = require('../lib/aggregate/aggregate');
+const { sumOfSquares } = require('../lib/aggregate/sum');
+const { first } = require('../lib/aggregate/first');
+const { toAsync } = require('../lib/creation/toAsync');
+const { compress } = require('../lib/advanced/compress');
 
 function mulBy100(n, cb) {
   cb(null, n * 100);
@@ -166,7 +168,7 @@ describe('Fundamentals', () => {
         const flaky = new FlakyService(true);
 
         try {
-          await handleErrorAsync(flaky);
+          await handleAsyncError(flaky);
         } catch (err) {
           return assert.instanceOf(err, ServiceError);
         }
@@ -178,7 +180,7 @@ describe('Fundamentals', () => {
         const service = new FlakyService(true);
 
         try {
-          await handleErrorAsync(service);
+          await handleAsyncError(service);
         } catch (err) {
           return assert.isTrue(service.isClosed(), 'shutdown not called');
         }
@@ -189,6 +191,11 @@ describe('Fundamentals', () => {
   });
 
   describe('Aggregating results', async () => {
+    it('n^2 each number and returns sum', async () => {
+      const s = await sumOfSquares([10, 20, 30, 40]);
+      assert.equal(s, 3000);
+    });
+
     it('aggregates multiple requests with promises', async () => {
       const flaky = new FlakyService(false);
       const responses = await aggregateWithPromises(flaky);
@@ -199,6 +206,13 @@ describe('Fundamentals', () => {
       const flaky = new FlakyService(false);
       const res = await first(flaky);
       assert.equal(res.id, flaky.getFatestRequest());
+    });
+  });
+
+  describe('advanced', () => {
+    it('compress a string', async () => {
+      const ans = await compress('aabccccczzzz');
+      assert.equal(ans, 'a2b2c5z4');
     });
   });
 });

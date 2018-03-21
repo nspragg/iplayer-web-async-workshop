@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports.withError = (message, cb) => {
+module.exports.createError = (message, cb) => {
   cb();
 };
