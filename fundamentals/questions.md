@@ -39,7 +39,7 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 * _Write an alternative implementation of [chain](./lib/transformation/chain.js) in a new function called `chainWithAsync` to use async/await. **Dont use promises**._
 
-* _Complete the implementation of [multipleAsyncCalls](./lib/transformation/multiple.js) to create a string containing each letter of the alphabet. Each letter should be created by invoking the `generateNextChar` async function._
+* _Complete the implementation of [multipleAsyncCalls](./lib/transformation/multiple.js) to create a string containing each letter of the alphabet. Each letter should be created by invoking the `generateNextChar` async function. **Dont use promises**._
 
 ### Error handling
 
