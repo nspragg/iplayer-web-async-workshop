@@ -25,11 +25,11 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 * _Complete the implementation of [isUnique](./lib/creation/unique.js) to determine if a given string contains unique characters (boolean return type). **This function must be implemented as an async function**. DO NOT directly use a `Promise`. Optional: to make the exercise more difficult, only use arrays._
 
-* _Complete the implementation of [convert](./lib/creation/convertWithNative.js) to convert a third party promise to a native JS promise._
+* _Complete the implementation of [convert](./lib/creation/convertWithNative.js) to convert a given third party promise to a native JS promise._
 
-* _Complete the implementation of [convert](./lib/creation/convertWithoutPromise.js) to convert a third party promise to a native JS promise **without using a promise directly**._
+* _Complete the implementation of [convert](./lib/creation/convertWithoutPromise.js) to convert a given third party promise to a native JS promise **without using a promise directly**._
 
-* _Complete the implementation of [toPromise](./lib/creation/toPromise.js) to convert legacy callback function to return a promise._
+* _Complete the implementation of [toPromise](./lib/creation/toPromise.js) to convert a legacy callback function to return a promise._
 
 * _Complete the implementation of [toCallback](./lib/creation/toCallback.js) that converts a given function (that returns a Promise) to a `callback` based function._
 
@@ -45,7 +45,7 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 * _Complete the implementation of [handlePromiseError](./lib/errors/promise.js) by:_
 
-  * Calling a given service's `makeRequest` method
+  * Calling a given service's `makeRequest` method (`service` is a parameter to `handlePromiseError`)
   * Handling any error thrown by `.makeRequest()` by converting it to an instance of `ServiceError` using the
   promise API.
 
