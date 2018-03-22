@@ -215,5 +215,11 @@ describe('Fundamentals', () => {
       assert.instanceOf(ans, Promise, 'compress is not an async function');
       assert.equal(await ans, 'a2b1c5z4');
     });
+    
+    it('less than original', async () => {
+      const ans = compress('abc');
+      assert.instanceOf(ans, Promise, 'compress is not an async function');
+      assert.equal(await ans, 'abc');
+    });
   });
 });
