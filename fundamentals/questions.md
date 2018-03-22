@@ -75,7 +75,7 @@ Implement solutions for all exercises. **Objective**: all tests should pass.
 
 * _Write your own implementation of `Promise.race`. Refactor [first](./lib/aggregate/first.js) to use your implementation._
 
-* _Complete the implemention of [compress](./lib/advanced/compress.js) to asynchronously compress a string using the character counts.<br>
+* _Complete the implemention of [compress](./lib/advanced/compress.js) to asynchronously compress a string using repeated character counts. If the compressed string is larger than the original, return the original string.<br>
  For example:<br> `compress("aabccccczzzz") // a2b1c5z4`_
 
 * _Write your own basic implementation of a cancelable promise. **You'll need to write tests for this exercise**._
