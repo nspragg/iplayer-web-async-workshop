@@ -212,7 +212,7 @@ describe('Fundamentals', () => {
   describe('advanced', () => {
     it('compress a string', async () => {
       const ans = await compress('aabccccczzzz');
-      assert.equal(ans, 'a2b2c5z4');
+      assert.equal(ans, 'a2b1c5z4');
     });
   });
 });
