@@ -3,11 +3,7 @@
 const _ = require('lodash');
 
 async function handleArray(iterable) {
-  const pending = [];
-  for (const fn of iterable) {
-    pending.push(fn());
-  }
-  return await Promise.all(pending);
+  return await Promise.all(iterable.map((fn) => fn()));
 }
 
 async function handleObject(iterable) {

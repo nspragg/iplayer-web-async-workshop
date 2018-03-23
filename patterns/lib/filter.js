@@ -1,5 +1,7 @@
 'use strict';
 
+// async functions return promises so array.filter always evaluates true.
+// Therefore using simple `for of`
 module.exports = async (arr, fn) => {
   const results = [];
   for (const e of arr) {
@@ -9,3 +11,4 @@ module.exports = async (arr, fn) => {
   }
   return results;
 };
+
