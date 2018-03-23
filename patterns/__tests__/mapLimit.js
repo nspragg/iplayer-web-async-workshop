@@ -2,7 +2,7 @@
 
 const asyncify = require('../lib/asyncify');
 const double = require('./utils/functions');
-const ExecutorError = require('./../lib/private/ExecutorError');
+const ExecutorError = require('./../lib/private/executorError');
 
 describe('.mapLimit', () => {
   it('map each element', async () => {

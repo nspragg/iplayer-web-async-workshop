@@ -1,6 +1,6 @@
 'use strict';
 
-const ExecutorError = require('./ExecutorError');
+const ExecutorError = require('./executorError');
 
 const CONCURRENCY_LEVEL = Infinity;
 
