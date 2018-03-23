@@ -24,6 +24,7 @@ const handleError = require('../lib/errors/promise').handleError;
 const handleErrorAsync = require('../lib/errors/async').handleError;
 const aggregateWithPromises = require('../lib/aggregate/aggregate').aggregateWithPromises;
 const first = require('../lib/aggregate/first').first;
+const { compress } = require('../lib/advanced/compress');
 
 function mulBy100(n, cb) {
   cb(null, n * 100);
@@ -187,4 +188,19 @@ describe('Fundamentals', () => {
       assert.equal(res.id, flaky.getFatestRequest());
     });
   });
+
+  describe('advanced', () => {
+    it('compress a string', async () => {
+      const ans = compress('aabccccczzzz');
+      assert.instanceOf(ans, Promise, 'compress is not an async function');
+      assert.equal(await ans, 'a2b1c5z4');
+    });
+
+    it('less than original', async () => {
+      const ans = compress('abc');
+      assert.instanceOf(ans, Promise, 'compress is not an async function');
+      assert.equal(await ans, 'abc');
+    });
+  });
+
 });
