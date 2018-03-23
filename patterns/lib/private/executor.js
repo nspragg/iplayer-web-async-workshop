@@ -10,20 +10,21 @@ async function parallelExecutor(arr, fn, limit = CONCURRENCY_LEVEL) {
   let active = 0;
   const results = [];
   return new Promise((resolve, reject) => {
-    function executeTask() {
+    function execute() {
       while (active < limit && arr.length > 0) {
         active++;
-        const pending = fn(arr.shift());
-        pending
+        const item = arr.shift();
+        fn(item)
           .then((res) => {
             results.push(res);
             if (--active <= 0 && arr.length === 0) return resolve(results);
-            executeTask();
+            execute(); // refresh active tasks
           })
-          .catch((e) => reject(new ExecutorError(e.message)));
+          .catch((e) => reject(new ExecutorError(e)));
       }
     }
-    executeTask();
+    // initiate task execution
+    execute();
   });
 }
 
